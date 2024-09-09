@@ -1,0 +1,9 @@
+{
+    "adminPasswords": {
+        "type": "array",
+        "items": {
+            "email": "admin@gmail.com", 
+            "password": "admin" 
+        }
+    }
+}

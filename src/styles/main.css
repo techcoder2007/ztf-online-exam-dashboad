@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    font-family: "SUSE", sans-serif !important;
+    box-sizing: border-box;
+}
