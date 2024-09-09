@@ -2,6 +2,7 @@ import Toastify from "toastify-js";
 import "toastify-js/src/toastify.css";
 
 import { adminPasswords } from "../data/login-schema.json";
+import { wait } from "../utils/wait";
 const loginForm = document.querySelector(".login-form");
 const emailInput = document.querySelector("#email");
 const passwordInput = document.querySelector("#password");
@@ -37,5 +38,9 @@ loginForm.addEventListener("submit", function (event) {
     stopOnFocus: true,
   }).showToast();
 
-  window.location.href = "/";
+  wait(2000).then(() => {
+    window.location.href = "/";
+  });
 });
+
+
