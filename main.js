@@ -1,7 +1,3 @@
-
-function handleLogOut () {
-    localStorage.removeItem("loggedIn");
-    window.location.href = "/pages/sign-in.html";
-}
+import { handleLogOut } from "./src/utils";
 
 document.querySelector(".sign-out-btn").addEventListener("click", handleLogOut)

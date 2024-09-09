@@ -24,30 +24,38 @@ loginForm.addEventListener("submit", function (event) {
     adminPasswords.items.password !== password ||
     adminPasswords.items.email !== email
   ) {
-    alert("Invalid email or password");
+    Toastify({
+      text: "Invalid email or password",
+      duration: 3000,
+      close: true,
+      gravity: "top",
+      position: "right",
+      backgroundColor: "linear-gradient(to right, red, crimson)",
+      stopOnFocus: true,
+    }).showToast();
+    emailInput.style.border = "1px solid red";
+    email.style.color = "red";
+    passwordInput.style.border = "1px solid red";
+    passwordInput.style.color = "red";
     return;
+  } else {
+    localStorage.setItem("loggedIn", "true");
+
+    Toastify({
+      text: "Welcome to dashboard",
+      duration: 3000,
+      close: true,
+      gravity: "top",
+      position: "right",
+      backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+      stopOnFocus: true,
+    }).showToast();
+
+    loginBtn.disabled = true;
+    loginBtn.style.opacity = "0.5";
+
+    wait(2000).then(() => {
+      window.location.href = "/";
+    });
   }
-
-  localStorage.setItem("loggedIn", "true");
-
-  Toastify({
-    text: "Welcome to dashboard",
-    duration: 3000,
-    close: true,
-    gravity: "top",
-    position: "right",
-    backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
-    stopOnFocus: true,
-  }).showToast();
-  
-
-  loginBtn.disabled = true;
-  loginBtn.style.opacity = "0.5";
-  
-
-  wait(2000).then(() => {
-    window.location.href = "/";
-  });
 });
-
-
